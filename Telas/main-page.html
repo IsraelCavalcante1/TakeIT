@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <link rel="stylesheet" href="/CSS/main.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Main - Take It</title>
+</head>
+<body>
+    <div class="container-filter">
+        <div class="filter-side">
+            <div class="search">
+                <label for="search-text">Buscar por texto</label>
+                <input type="text" id="search-text" name="search-text" value="Busque por texto">
+            </div>
+            <div class="tag-content">
+                <h2>Tags <a><i onclick="openModal('modal-add-tag')" class="fa-solid fa-plus link-plus"></i></a></h2> 
+                <div class="tag-list" id="tag-list">
+                </div>
+            </div>
+            <!-- MODAL -->
+            <div id="modal-add-tag" class="modal">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1>Criar nova tag</h1>
+                    </div>
+        
+                    <div class="modal-body">
+                        <div class="add-info">
+                            <form action="/main_page">
+    
+                                <label for="nome-tag">Nome da Tag</label>
+                                <input type="text" id="nome-tag" name="nome-tag" placeholder="Nome da Tag"><br><br>
+
+                                
+                            </form>
+                        </div>
+
+                        
+                    </div>
+        
+                    <div class="modal-footer">
+                        <button class="btn" onclick="closeModal('modal-add-tag')">Fechar</button>
+                        <button class="btn" onclick="closeModal('modal-add-tag')">Salvar</button>
+                    </div>
+                </div>
+            </div>
+            <!-- FIM MODAL -->
+        </div>
+        <div class="content-side">
+          <div class="add-link">
+            <h2>Links Salvos <a onclick="openModal('modal-add-board')"><i class="fa-solid fa-plus link-plus"></i></a></h2>
+          </div>
+              
+        <div id="modal-add-board" class="modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1>Adicionar novo board</h1>
+                </div>
+    
+                <div class="modal-body">
+                    <div class="add-info">
+                        <form action="/main_page">
+
+                            <label for="nome">Titulo</label>
+                            <input type="text" id="titulo" name="titulo" placeholder="Titulo do board"><br><br>
+                            <label for="link">Link</label>
+                            <input type="text" id="link" name="link" placeholder="Exemplo.com"><br><br>
+                            <label for="description">Descrição</label>
+                            <input type="text" id="description" name="description" placeholder="Descreva o link"><br><br>
+                            
+                        </form>
+                    </div>
+                    <div class="add-tag">
+                        <div class="head-tag">
+                            <span>Tags</span>
+                            <i class="fa-solid fa-plus link-plus"></i>
+                        </div>
+                        <div id="tag-add-board" class="tag-add-board">
+                            
+                        </div>
+                    </div>
+                    
+                </div>
+    
+                <div class="modal-footer">
+                    <button class="btn" onclick="closeModal('modal-add-board')">Fechar</button>
+                    <button class="btn" onclick="closeModal('modal-add-board')">Salvar</button>
+                </div>
+            </div>
+        </div>
+          <div id="board-content" class="board-content">
+            
+          </div>
+        
+        </div>
+    </div>
+</body>
+<script src="./Javascript/main-page js/modal.js"></script>
+<script src="./Javascript/main-page js/filter-main-page.js"></script>
+<script src="./Javascript/main-page js/board-main-page.js"></script>
+<script src="https://kit.fontawesome.com/a668ece7ed.js" crossorigin="anonymous"></script>
+</html>
