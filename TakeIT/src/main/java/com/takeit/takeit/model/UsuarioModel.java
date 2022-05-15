@@ -1,5 +1,6 @@
 package com.takeit.takeit.model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -18,7 +19,7 @@ public class UsuarioModel {
 
     @Column(unique = true, name = "ds_login")
     private String login;
-
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     @Column(name="ds_password")
     private String password;
 }
