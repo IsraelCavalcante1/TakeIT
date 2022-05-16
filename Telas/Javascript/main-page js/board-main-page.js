@@ -15,7 +15,7 @@ function getBoard(){
     return [
         {
             "id": 1,
-            "name": "Gozada Dev",
+            "name": "Luizinho Dev",
             "description": "link rabbit",
             "link": "google.com",
             "tags": [
@@ -33,7 +33,7 @@ function getBoard(){
         },
          {
             "id": 2,
-            "name": "Pinto Dev",
+            "name": "Dev Dev",
             "description": "link rabbit",
             "link": "goog1le.com",
             "tags": [
@@ -66,7 +66,7 @@ function getBoard(){
         },
          {
             "id": 3,
-            "name": "Xota Dev",
+            "name": "BackEnd Dev",
             "description": "link rabbit",
             "link": "3.com",
             "tags": [
@@ -99,7 +99,7 @@ function getBoard(){
         },
         {
             "id": 9,
-            "name": "Pinto Dev2",
+            "name": "Front-End",
             "description": "link rabbit",
             "link": "goog1le.com",
             "tags": [
