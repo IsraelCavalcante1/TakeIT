@@ -13,15 +13,17 @@ import javax.persistence.*;
 public class TagModel {
     @Id
     @Column(name = "tag_id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @Column(name="nm_nome", nullable = false)
+    @Column(name="nm_nome_tag", nullable = false)
     private String nome;
 
     @Column(name="ds_color", nullable = false)
     private String color;
 
-
-//    private UsuarioModel user;
+    @ManyToOne(cascade = { CascadeType.PERSIST})
+    @JoinColumn(name = "user_id")
+    private UsuarioModel user;
 
 }
