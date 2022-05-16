@@ -11,7 +11,7 @@ form.addEventListener('submit', (event) => {
     xhttp.onreadystatechange =  function (){
         if (xhttp.readyState == 4 && xhttp.status == 200){
             setCookie("token", xhttp.responseText, 1)
-            window.location.href = "../../main-page.html";
+            window.location.href = 'C:\\Users\\leoru\\Documents\\Estudos\\Projeto take it\\Take IT\\Telas\\mainPage.html';
         }else if (xhttp.status == 403){
             console.log("Email ou senha incorreto!")
         }
@@ -19,7 +19,7 @@ form.addEventListener('submit', (event) => {
     };
     var json = {
     
-        "login" : username,
+        "email" : username,
         "password": password
     }
 

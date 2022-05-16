@@ -14,7 +14,7 @@ form.addEventListener('submit', (event) => {
         
     };
     var json = {
-        "login" : username,
+        "email" : username,
         "password": password
     }
 
