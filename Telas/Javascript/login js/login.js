@@ -18,13 +18,15 @@ form.addEventListener('submit', (event) => {
         
     };
     var json = {
+    
         "login" : username,
         "password": password
     }
 
     console.log(json)
     xhttp.open("POST", url, true);
-    xhttp.setRequestHeader('Accept', 'application/json')
+    xhttp.setRequestHeader('Accept', 'application/json');
+    xhttp.setRequestHeader("Content-type", "application/json");
     xhttp.send(JSON.stringify(json));
 })
 

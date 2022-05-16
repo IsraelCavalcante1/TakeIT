@@ -22,7 +22,7 @@ form.addEventListener('submit', (event) => {
     xhttp.open("POST", url, true);
     xhttp.setRequestHeader('Accept', 'application/json')
     xhttp.setRequestHeader("Content-type", "application/json")
-    xhttp.send(json);
+    xhttp.send(JSON.stringify(json));
 })
 
 // function setCookie(name,value,days) {
