@@ -27,7 +27,7 @@ public class UsuarioController {
         return ResponseEntity.ok(repository.findAll());
     }
 
-    @PostMapping("/salvar")
+    @PostMapping(value ="/criar", consumes = {"*/*"})
     public ResponseEntity<UsuarioModel> salvar(@RequestBody UsuarioModel usuario){
         usuario.setPassword(encoder.encode(usuario.getPassword()));
         return ResponseEntity.ok(repository.save(usuario));

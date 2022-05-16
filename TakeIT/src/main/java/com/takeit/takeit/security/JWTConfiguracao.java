@@ -13,6 +13,8 @@ import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.CorsConfigurationSource;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 
+import java.util.Arrays;
+
 @EnableWebSecurity
 public class JWTConfiguracao extends WebSecurityConfigurerAdapter {
 
@@ -34,8 +36,9 @@ public class JWTConfiguracao extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         // CSRF PARA AMBIENTE DE PRODUÇÃO PRECISA ESTAR HABILITADO
-        http.csrf().disable().authorizeRequests()
+        http.cors().and().csrf().disable().authorizeRequests()
                 .antMatchers(HttpMethod.POST, "/login").permitAll()
+                .antMatchers(HttpMethod.POST, "/takeit/usuario/criar").permitAll()
                 .anyRequest().authenticated()
                 .and()
                 .addFilter(new JWTAutenticarFilter(authenticationManager()))
@@ -44,10 +47,14 @@ public class JWTConfiguracao extends WebSecurityConfigurerAdapter {
     }
     // Para requisições externas
     @Bean
-    CorsConfigurationSource corsConfigurationSource(){
-        final UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
-        CorsConfiguration corsConfiguration = new CorsConfiguration().applyPermitDefaultValues();
-        source.registerCorsConfiguration("/**", corsConfiguration);
+    CorsConfigurationSource corsConfigurationSource()
+    {
+        CorsConfiguration configuration = new CorsConfiguration();
+        configuration.setAllowedOrigins(Arrays.asList("*"));
+        configuration.setAllowedMethods(Arrays.asList("GET","POST"));
+        UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
+        source.registerCorsConfiguration("/**", configuration);
         return source;
     }
+
 }
