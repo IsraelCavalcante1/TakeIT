@@ -2,7 +2,6 @@ package com.takeit.takeit.controller;
 
 import com.takeit.takeit.model.UsuarioModel;
 import com.takeit.takeit.repository.UsuarioRepository;
-import org.apache.coyote.Response;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -36,7 +35,7 @@ public class UsuarioController {
     @GetMapping("/validarSenha")
     public ResponseEntity<Boolean> validarSenha (@RequestParam String login,
                                                  @RequestParam String password){
-        Optional<UsuarioModel> optUsuario = repository.findByLogin(login);
+        Optional<UsuarioModel> optUsuario = repository.findByEmail(login);
         if (optUsuario.isEmpty()){
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(false);
         }
