@@ -4,7 +4,7 @@
 
 
 window.onload = function(){
-    var tags = getTags();
+    getTags();
     
     showBoard(getBoard())
     

@@ -9,9 +9,9 @@ function salvarTag(){
     alert("color" + corTag + "nome" + nomeTag)
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function(){
-        // if (xhttp.readyState == 4 && xhttp.status == 200){
-
-        // }
+        if (xhttp.readyState == 4 && xhttp.status == 200){
+            
+        }
 }
 var json = {
     

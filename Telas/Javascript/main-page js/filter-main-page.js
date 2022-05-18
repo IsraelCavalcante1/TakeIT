@@ -5,13 +5,14 @@ var teste = document.getElementById('id-listar-todos')
 function getTags(){
     var tags;
     var token = getCookie("token")
-    var url ="http://localhost:8080/takeit/tag/listarTodas";
+    var url ="http://localhost:8080/takeit/tag/listarTag";
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function(){
         if (xhttp.readyState == 4 && xhttp.status == 200) {
             tags= JSON.parse(xhttp.responseText) ;
             showTag(tags, "filter_", "tag-list", true);
             showTag(tags, "add_tag_", "tag-add-board",false)
+
         }
     }
     
