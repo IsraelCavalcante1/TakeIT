@@ -1,6 +1,3 @@
-
-
-
 const form  = document.getElementById('signin');
 url = "http://localhost:8080/login"
 form.addEventListener('submit', (event) => {

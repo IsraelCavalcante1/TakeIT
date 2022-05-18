@@ -1,14 +1,13 @@
-
-var imported = document.createElement('script');
-imported.src = 'C:\Users\leoru\Documents\Estudos\Projeto take it\Telas\Javascript\main-page js\filter-main-page.js';
-document.head.appendChild(imported);
+// var imported = document.createElement('script');
+// imported.src = 'C:\Users\leoru\Documents\Estudos\Projeto take it\Telas\Javascript\main-page js\filter-main-page.js';
+// document.head.appendChild(imported);
 
 
 window.onload = function(){
     var tags = getTags();
-    showTag(tags, "filter_", "tag-list", true);
-    showTag(tags, "add_tag_", "tag-add-board",false)
+    
     showBoard(getBoard())
+    
 }
 
 function getBoard(){
