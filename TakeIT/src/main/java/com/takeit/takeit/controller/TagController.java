@@ -17,9 +17,9 @@ public class TagController {
         this.service = service;
     }
 
-    @GetMapping("/listarTodas")
-    public ResponseEntity<List<TagModel>> listarTodas(){
-        return ResponseEntity.ok(service.listarTodos());
+    @GetMapping("/listarTag")
+    public ResponseEntity<List<TagModel>> listarTag(){
+        return ResponseEntity.ok(service.listarPorUsuario());
     }
 
     @PostMapping("/criar")

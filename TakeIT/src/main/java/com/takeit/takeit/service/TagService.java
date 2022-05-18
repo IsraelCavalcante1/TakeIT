@@ -40,6 +40,11 @@ public class TagService {
         return repository.findAll();
  }
 
+ public List<TagModel> listarPorUsuario(){
+        String email = userService.usuarioLogado();
+        return repository.findAllByUserEmail(email);
+ }
+
  public TagModel buscarPorId(long id){
    return repository.findById(id).orElseThrow(() -> new NotFoundException("Tag não encontrada",id));
 
