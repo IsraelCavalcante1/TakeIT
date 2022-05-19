@@ -1,12 +1,11 @@
-const salvar  = document.getElementById('salvarTag');
-url = "http://localhost:8080/takeit/tag/criar"
 function salvarTag(){
+
+url = "http://localhost:8080/takeit/tag/criar"
 
    var token = getCookie("token")
 
     var nomeTag = document.getElementById("nome-tag").value;
     var corTag = document.getElementById("cor-tag").value;
-    alert("color" + corTag + "nome" + nomeTag)
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function(){
         if (xhttp.readyState == 4 && xhttp.status == 200){

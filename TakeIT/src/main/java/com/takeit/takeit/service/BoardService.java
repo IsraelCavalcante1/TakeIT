@@ -8,6 +8,8 @@ import com.takeit.takeit.repository.TagRepository;
 import com.takeit.takeit.repository.UsuarioRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class BoardService {
     private final TagRepository tagRepository;
@@ -32,6 +34,11 @@ public class BoardService {
         }
         board.setUser(user);
         return boardRepository.save(board);
+    }
+
+    public List<BoardModel> listarPorUsuario(){
+        String email = userService.usuarioLogado();
+        return boardRepository.findAllByUserEmail(email);
     }
 
 }

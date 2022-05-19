@@ -19,6 +19,12 @@ public class BoardModel {
     @Column(name="nome")
     private String nome;
 
+    @Column (name = "link")
+    private String link;
+
+    @Column (name = "description")
+    private String description;
+
     @ManyToOne(cascade = { CascadeType.PERSIST })
     @JoinColumn(name = "user_id")
     private UsuarioModel user;
@@ -31,3 +37,4 @@ public class BoardModel {
     )
     private List<TagModel> tags;
 }
+

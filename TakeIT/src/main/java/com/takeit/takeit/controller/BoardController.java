@@ -4,10 +4,9 @@ package com.takeit.takeit.controller;
 import com.takeit.takeit.model.BoardModel;
 import com.takeit.takeit.service.BoardService;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/takeit/board")
@@ -22,5 +21,10 @@ public class BoardController {
     @PostMapping("/criar")
     public ResponseEntity<BoardModel> salvar(@RequestBody BoardModel board){
         return ResponseEntity.ok(service.salvar(board));
+    }
+
+    @GetMapping("/listarTodos")
+    public ResponseEntity<List<BoardModel>> listarBoard(){
+        return ResponseEntity.ok(service.listarPorUsuario());
     }
 }

@@ -5,145 +5,44 @@
 
 window.onload = function(){
     getTags();
-    
-    showBoard(getBoard())
+     showBoard();
+
     
 }
 
-function getBoard(){
-    return [
-        {
-            "id": 1,
-            "name": "Luizinho Dev",
-            "description": "link rabbit",
-            "link": "google.com",
-            "tags": [
-            {
-                "id": 4,
-                "name": "Wiki Java",
-                "color": "#DD5E5E"
-            },
-            {
-                "id": 5,
-                "name": "Wiki Front End",
-                "color": "#DD5E5E"
-            }
-        ] 
-        },
-         {
-            "id": 2,
-            "name": "Dev Dev",
-            "description": "link rabbit",
-            "link": "goog1le.com",
-            "tags": [
-                {
-                    "id": 1,
-                    "name": "Produção",
-                    "color": "#DD5E5E"
-                },
-                {
-                    "id": 2,
-                    "name": "Dev",
-                    "color": "#DD5E5E"
-                },
-                {
-                    "id": 3,
-                    "name": "Wiki Projetinho",
-                    "color": "#DD5E5E"
-                },
-                {
-                    "id": 4,
-                    "name": "Wiki Java",
-                    "color": "#DD5E5E"
-                },
-                {
-                    "id": 5,
-                    "name": "Wiki Front End",
-                    "color": "#DD5E5E"
-                }
-        ] 
-        },
-         {
-            "id": 3,
-            "name": "BackEnd Dev",
-            "description": "link rabbit",
-            "link": "3.com",
-            "tags": [
-                {
-                    "id": 1,
-                    "name": "Produção",
-                    "color": "#DD5E5E"
-                },
-                {
-                    "id": 2,
-                    "name": "Dev",
-                    "color": "#DD5E5E"
-                },
-                {
-                    "id": 3,
-                    "name": "Wiki Projetinho",
-                    "color": "#DD5E5E"
-                },
-                {
-                    "id": 4,
-                    "name": "Wiki Java",
-                    "color": "#DD5E5E"
-                },
-                {
-                    "id": 5,
-                    "name": "Wiki Front End",
-                    "color": "#DD5E5E"
-                }
-        ] 
-        },
-        {
-            "id": 9,
-            "name": "Front-End",
-            "description": "link rabbit",
-            "link": "goog1le.com",
-            "tags": [
-                {
-                    "id": 1,
-                    "name": "Produção",
-                    "color": "#DD5E5E"
-                },
-                {
-                    "id": 2,
-                    "name": "Dev",
-                    "color": "#DD5E5E"
-                },
-                {
-                    "id": 3,
-                    "name": "Wiki Projetinho",
-                    "color": "#DD5E5E"
-                },
-                {
-                    "id": 4,
-                    "name": "Wiki Java",
-                    "color": "#DD5E5E"
-                },
-                {
-                    "id": 5,
-                    "name": "Wiki Front End",
-                    "color": "#DD5E5E"
-                }
-        ] 
+
+function showBoard(){
+    var tags;
+    var token = getCookie("token")
+    var url ="http://localhost:8080/takeit/board/listarTodos";
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function(){
+        if (xhttp.readyState == 4 && xhttp.status == 200) {
+            board= JSON.parse(xhttp.responseText) ;
+            getBoard(board);
         }
+    }
+    
+    xhttp.open("GET",url , false)
+    xhttp.setRequestHeader('Accept', 'application/json');
+    xhttp.setRequestHeader("Content-type", "application/json");
+    xhttp.setRequestHeader("Authorization", "Bearer " + token);
+    xhttp.send();
+   
+    }
 
-    ]
-}
 
 
-function showBoard(boards){
+function getBoard(boards){
     var listSize = boards.length;
     for (var i = 0; i < listSize; i++){
         document.getElementById('board-content').innerHTML+= `
         <div class="board">
         <div class="head-board">
-            <span>${boards[i].name}</span>
-            <i id="copy" class="fa-regular fa-copy" onclick="copyToClipboard('google.com')"></i>
+            <span>${boards[i].nome}</span>
+            <i id="copy" class="fa-regular fa-copy" onclick="copyToClipboard('${boards[i].link}')"></i>
         </div>
-        <div id = "link" class="link">google.com</div>
+        <div id = "link" class="link">${boards[i].link}</div>
         <div class="board-tags">
             <div class="board-config" id="board_${boards[i].id}">
 

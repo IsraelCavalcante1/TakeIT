@@ -5,6 +5,11 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="./Javascript/main-page js/addBoard.js"></script>
+    <script src="./Javascript/main-page js/modal.js"></script>
+    <script src="./Javascript/main-page js/addTag.js"></script>
+    <script src="./Javascript/main-page js/filter-main-page.js"></script>
+    <script src="./Javascript/main-page js/board-main-page.js"></script>
     <title>Main - Take It</title>
 </head>
 <body>
@@ -41,7 +46,7 @@
         
                     <div class="modal-footer">
                         <button class="btn" onclick="closeModal('modal-add-tag')">Fechar</button>
-                        <button  id= "teste" class="btn" onclick="closeModal('modal-add-tag'), salvarTag()">Salvar</button>
+                        <button  id= "salvarTag" class="btn" onclick="closeModal('modal-add-tag'), salvarTag()">Salvar</button>
                     </div>
                 </div>
             </div>
@@ -88,7 +93,7 @@
     
                 <div class="modal-footer">
                     <button class="btn" onclick="closeModal('modal-add-board')">Fechar</button>
-                    <button class="btn" id="salvarTag" onclick="closeModal('modal-add-board')">Salvar</button>
+                    <button class="btn" id="salvarBoard" onclick="closeModal('modal-add-board'), addBoard()">Salvar</button>
                 </div>
             </div>
         </div>
@@ -98,10 +103,7 @@
         
         </div>
     </div>
-</body>
-<script src="./Javascript/main-page js/modal.js"></script>
-<script src="./Javascript/main-page js/addTag.js"></script>
-<script src="./Javascript/main-page js/filter-main-page.js"></script>
-<script src="./Javascript/main-page js/board-main-page.js"></script>
+</body> 
+
 <script src="https://kit.fontawesome.com/a668ece7ed.js" crossorigin="anonymous"></script>
 </html>

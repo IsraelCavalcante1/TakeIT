@@ -1,0 +1,2 @@
+ALTER TABLE T_TI_BOARD
+add column link VARCHAR(30) NOT NULL;
