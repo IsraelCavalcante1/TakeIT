@@ -10,23 +10,23 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity (name="T_TI_BOARD")
-
 public class BoardModel {
     @Id
-    @Column (name="ds_board_id")
+    @Column (name="board_id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @Column(name="ds_board_name")
+    @Column(name="nome")
     private String nome;
 
-
     @ManyToOne(cascade = { CascadeType.PERSIST })
+    @JoinColumn(name = "user_id")
     private UsuarioModel user;
 
     @ManyToMany(cascade = { CascadeType.ALL })
     @JoinTable(
             name = "T_TI_TAG_BOARD",
-            joinColumns = { @JoinColumn(name = "ds_board_id") },
+            joinColumns = { @JoinColumn(name = "board_id") },
             inverseJoinColumns = { @JoinColumn(name = "tag_id") }
     )
     private List<TagModel> tags;
