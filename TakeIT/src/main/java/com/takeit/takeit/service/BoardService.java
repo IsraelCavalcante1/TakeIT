@@ -1,14 +1,18 @@
 package com.takeit.takeit.service;
 
 import com.takeit.takeit.exception.DuplicatedObjectException;
+import com.takeit.takeit.exception.NotFoundException;
 import com.takeit.takeit.model.BoardModel;
+import com.takeit.takeit.model.TagModel;
 import com.takeit.takeit.model.UsuarioModel;
 import com.takeit.takeit.repository.BoardRepository;
 import com.takeit.takeit.repository.TagRepository;
 import com.takeit.takeit.repository.UsuarioRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class BoardService {
@@ -33,6 +37,13 @@ public class BoardService {
             throw new DuplicatedObjectException("Board", board.getId());
         }
         board.setUser(user);
+        List<TagModel> listaTag = board.getTags();
+        List<TagModel> tagSalva = new ArrayList<>();
+        for (TagModel tag : listaTag){
+            TagModel tagSearch = tagRepository.findById(tag.getId()).orElseThrow(() -> new NotFoundException("tag", tag.getId()));
+            tagSalva.add(tagSearch);
+        }
+        board.setTags(tagSalva);
         return boardRepository.save(board);
     }
 

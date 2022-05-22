@@ -89,6 +89,12 @@ a:visited{
     flex-direction: column;
 }
 
+.checkbox_hide{
+    display: none;
+}
+.selected-tag{
+    box-shadow: 5px 5px 15px 5px #0000007d, 0px 0px 3px 0px #00000000;
+}
 .add-link{
     display: flex;
     background-color: grey;

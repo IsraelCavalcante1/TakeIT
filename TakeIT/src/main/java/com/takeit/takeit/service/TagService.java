@@ -28,7 +28,7 @@ public class TagService {
         String username = userService.usuarioLogado();
 
         UsuarioModel user = userService.buscarPorEmail(username);
-       TagModel userDuplicated = repository.findByNome(tag.getNome()).orElse(null);
+       TagModel userDuplicated = repository.findByNomeAndUserEmail(tag.getNome(), username).orElse(null);
        if  (userDuplicated != null){
            throw new DuplicatedObjectException("Tag", tag.getId());
        }
